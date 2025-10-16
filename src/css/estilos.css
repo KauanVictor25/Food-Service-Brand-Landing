@@ -1,0 +1,725 @@
+body {
+	font-family: "Roboto", sans-serif;
+}
+
+/* CABEÇALHO */
+
+.cabecalho {
+    background-color: #f79ff0;
+    padding: 15px 4%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 60px;
+
+     position: fixed; /* É o que fixa o elemento na tela */
+    top: 0;          /* Cola ele no topo */
+    left: 0;         /* Alinha à esquerda */
+    width: 100%;     /* Faz ocupar a largura inteira da tela */
+    z-index: 1000;   /* Garante que ele fique sobreposto a outros elementos */
+}
+
+.cabecalho .interface {
+    display: flex;
+    align-items: center; /* Mantém o alinhamento vertical dos itens */
+}
+
+.cabecalho .logo img {
+    width: 150px;
+    height: auto;
+}
+
+/* Faz o container do menu crescer para ocupar o espaço vazio */
+.menu-desktop {
+    flex-grow: 1; 
+}
+
+.menu-desktop ul {
+    list-style-type: none;
+    display: flex;
+    gap: 30px; /* Aumentei um pouco o espaço para distribuir melhor */
+    margin: 0;
+    padding: 0;
+    
+    /* Centraliza os links DENTRO do espaço do menu */
+    justify-content: center;
+}
+
+.menu-desktop ul li a {
+    color: #6b4d68;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+    background-color:#ffffff;
+}
+
+.menu-desktop ul li a:hover {
+    background-color: #ffffff;
+    color: #d769c5;
+}
+
+/* ========================= */
+/* ESTILO DO MENU MOBILE     */
+/* ========================= */
+
+.btn-abrir-menu {
+    display: none; /* Começa escondido no desktop */
+    color: #6b4d68;
+    font-size: 40px;
+}
+
+.menu-mobile {
+    background-color: #f7e4f5;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 99999;
+    width: 0%;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.menu-mobile.abrir-menu {
+    width: 70%;
+}
+
+.menu-mobile.abrir-menu ~ .overlay-menu {
+    display: block;
+}
+
+.menu-mobile .btn-fechar {
+    padding: 20px 5%;
+}
+
+.menu-mobile .btn-fechar i {
+    color: #6b4d68;
+    font-size: 30px;
+}
+
+.menu-mobile nav ul {
+    text-align: right;
+}
+
+.menu-mobile nav ul li a {
+    color: #6b4d68;
+    font-size: 20px;
+    font-weight: 300;
+    padding: 20px 8%;
+    display: block;
+}
+
+.menu-mobile nav ul li a:hover {
+    background-color: #6b4d68;
+    color: #f79ff0;
+}
+
+.overlay-menu {
+    background-color: #000000a7;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 88888;
+    display: none;
+}
+
+
+/* MEIO */
+.container {
+	max-width: 1170px;
+	margin: 0 auto;
+    padding-top: 90px; /* Empurra o conteúdo para baixo do cabeçalho fixo */
+}
+
+.container .carta.carta-combo {
+    /* Define uma altura mínima para o card do combo, dando mais espaço vertical. */
+    min-height: 500px; /* Você pode mexer aqui para aumentar ou diminuir a altura total do card, se quiser. */
+}
+
+.container .carta.carta-combo img {
+    /*
+      Volta para 'contain': garante que a imagem inteira seja visível e proporcional.
+      Para a imagem ficar maior dentro do espaço, vamos aumentar a altura do seu container.
+    */
+    object-fit: contain;
+    
+    height: 450px; 
+    
+    width: 100%; /* Garante que ela ocupe a largura total disponível */
+    padding: 0; /* Remove qualquer padding que possa estar empurrando a imagem para dentro */
+
+    /* Remove o arredondamento de borda da imagem, pois o card já tem. */
+    border-radius: 0; 
+
+    /* Centraliza a imagem horizontalmente dentro do espaço. */
+    margin: 0 auto; 
+    display: block; /* Garante que 'margin: auto' funcione para centralizar */
+}
+
+
+.container .carta.carta-combo .informacoes {
+    padding: 20px; /* Garante que o padding padrão seja aplicado */
+}
+
+
+
+/* PARTE DO PRODUTO TOP LINE */
+.container .produtos {
+	color: #6b6b6b;
+	font-size: 24px;
+	font-weight: 500;
+	margin-bottom: 32px;
+	line-height: 32px;
+	letter-spacing: 2px;
+}
+/* PARTE GERAL DO FILTRO */
+.container .filtros {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	margin-bottom: 32px;
+}
+
+.container .categorias-cartas,
+.container .preco-cartas {
+	display: flex;
+	flex-direction: column;
+	width: 40%;
+}
+
+/* CATEGORIA + PREÇO */
+.container label {
+	letter-spacing: 2px;
+	font-weight: 500;
+	color: #6b6b6b;
+}
+
+.container .categorias-cartas select,
+.container .preco-cartas input {
+	padding: 16px 13px;
+	border-radius: 2px;
+	border: 2px solid #d769c5;
+	background-color: #faf7ff9f;
+	color: #130234;
+	height: 52px;
+	border-radius: 20PX;
+}
+
+.container select:focus,
+.container input:focus,
+.container select:focus-visible,
+.container input:focus-visible {
+	outline: none;
+}
+
+.container select.categoria {
+	appearance: none;
+	background: url(../imagens/seta-para-baixo.png) 97% center no-repeat;
+}
+
+.container .filtros .btn-filtrar {
+	border: none;
+	background-color: #d769c5;
+	color: #ededed;
+	padding: 16px 32px;
+	font-weight: 500;
+	align-self: end;
+	width: 177px;
+	height: 52px;
+	cursor: pointer;
+	letter-spacing: 2px;
+	transition: 0.3s;
+	border-radius: 20px;
+}
+
+.container .filtros .btn-filtrar:hover {
+	background-color: #6b6b6b;
+}
+
+.container .cartas {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 32px;
+	margin-top: 32px;
+    align-items: flex-start;
+}
+
+
+/* FUNDO DAS CARTAS */
+ .container .cartas .carta {
+	width: calc((100% - 64px) / 3); /* A mágica está aqui! */
+    background-color: #f0f0f0;
+    color: #000000;
+    border-radius: 20px;
+    box-shadow: 0 6px 12px rgb(0, 0, 0, 0.2);
+}
+/* ORGANIZAÇAO CARTAS DENTRO DO FUNDO */
+.container .carta img {
+	 width: 100%;
+  height: 250px;       /* 1. Defina uma altura para alinhar os cards. Ajuste este valor! */
+  object-fit: contain; /* 2. 'contain' garante que a IMAGEM INTEIRA apareça, sem cortes. */
+  padding: 20px;
+}
+/* FUNDO DE INFORMAÇOES SOBRE AS CARTAS */
+.container .carta .informacoes {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	background-color: #fdfdfd;
+	padding: 20px;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+}
+
+
+/* TEXTO DENTRO DO FUNDO DE INFORMAÇOES SOBRE AS CARTAS */
+.container .carta .informacoes .nome-personagem {
+	font-size: 24px;
+	font-weight: 700;
+	color: #555454;
+}
+
+/* SUBTEXTO (EX:CATEGORIA=COMUN) DENTRO DO FUNDO DE INFORMAÇOES SOBRE AS CARTAS */
+.container .carta .informacoes .categoria {
+	color: #7e7e7e;
+	font-weight: 700;
+}
+
+/* PARTE DO VALOR MONETARIO */
+.container .carta .informacoes .preco {
+	font-size: 24px;
+	letter-spacing: 2px;
+	font-weight: 700;
+	color: #4d8e5c;
+}
+
+
+/* BOTAO DE COMPRAR */
+.container .carta .informacoes .btn-comprar {
+	color: #555454;
+	background-color: #fabcfc;
+	padding: 16px;
+	border-radius: 4px;
+	letter-spacing: 2px;
+	transition: 0.3s;
+	text-align: center;
+	text-decoration: none;
+}
+
+/* HOVER DO BOTAO DE COMPRAR */
+.container .carta .informacoes .btn-comprar:hover {
+	background-color: #55545475;
+}
+
+
+/* ========================= */
+/* ESTILO DA SEÇÃO SOBRE */
+/* ========================= */
+
+.sobre {
+    padding: 80px 4%; /* Adiciona um espaçamento geral na seção */
+}
+
+.sobre .flex {
+    display: flex; /* ATIVA O FLEXBOX: coloca os itens um ao lado do outro */
+    align-items: center; /* Alinha verticalmente a imagem e o texto */
+    gap: 60px; /* Cria um espaço de 60px entre o texto e a imagem */
+}
+
+/* --- As Colunas de Texto e Imagem --- */
+.sobre .txt-sobre,
+.sobre .img-sobre {
+    width: 50%; /* Faz cada coluna ocupar metade do espaço */
+}
+
+/* --- A MÁGICA PARA TROCAR A ORDEM --- */
+/* Como no HTML a imagem vem primeiro, usamos a propriedade "order" para inverter a posição visualmente */
+.sobre .txt-sobre {
+    order: 1; /* Define o texto como o primeiro item */
+}
+
+.sobre .img-sobre {
+    order: 2; /* Define a imagem como o segundo item */
+}
+
+
+/* --- Estilo da Imagem --- */
+.sobre .img-sobre img {
+    width: 100%;
+    border-radius: 20px; /* Deixa as bordas da imagem arredondadas */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra suave */
+}
+
+/* --- Estilo do Texto --- */
+.sobre .txt-sobre h2 {
+    text-align: center; /* OBJETIVO 1: Centraliza o H2 */
+    font-size: 46px;
+    line-height: 1.2;
+    margin-bottom: 30px; /* Cria um espaço abaixo do título */
+}
+
+.sobre .txt-sobre h2 span {
+    color: #f572ea; /* Cor de destaque para o seu nome, use a cor do seu site */
+    display: block; /* Faz o span quebrar a linha */
+}
+
+.sobre .txt-sobre p {
+    margin: 20px 0; /* Espaçamento entre os parágrafos */
+    text-align: justify; /* Deixa o texto dos parágrafos mais alinhado */
+    line-height: 1.5;
+	font-weight: 200px;
+	font-size: 19px;
+}
+
+
+/* ========================= */
+/* ESTILO DA SEÇÃO SOCIAL */
+/* ========================= */
+
+/* --- Estilo dos Botões Sociais --- */
+.sobre .btn-social {
+    text-align: center; /* Centraliza os botões */
+    margin-top: 40px;
+}
+
+.sobre .btn-social button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Deixa o botão redondo */
+    border: none;
+    background-color: #f572ea; /* Cor de fundo */
+    color: white; /* Cor do ícone */
+    font-size: 22px; /* Tamanho do ícone */
+    cursor: pointer;
+    margin: 0 10px;
+    transition: 0.3s;
+}
+
+.sobre .btn-social button:hover {
+    transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
+    box-shadow: 0 0 15px #f572ea;
+}
+
+
+.galeria-social {
+    display: flex;
+    gap: 15px; /* Espaço entre as fotos da galeria */
+}
+
+/* ESTILO PARA AS FOTOS NORMAIS (WHATSAPP) */
+.galeria-social img {
+    width: 150px; 
+    height: 150px;
+    object-fit: cover; 
+    border-radius: 10px;
+    border: 3px solid #f0f0f0;
+}
+
+/* A MÁGICA DO EFEITO DE ROLAGEM (INSTAGRAM) */
+.instagram-hover .img-wrapper {
+    width: 150px;
+    height: 150px; /* A "caixinha" que limita a altura */
+    border-radius: 10px;
+    border: 3px solid #f0f0f0;
+    overflow: hidden; /* ESSA É A PROPRIEDADE MAIS IMPORTANTE! Esconde o que transborda. */
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.instagram-hover .img-wrapper:hover {
+    border-color: #f572ea;
+}
+
+.instagram-hover .img-wrapper img {
+    width: 100%;
+    /* A imagem é maior que a caixinha, por isso vai "sobrar" para baixo */
+    transition: transform 0.8s ease-in-out; /* A animação suave de rolagem */
+}
+
+.instagram-hover .img-wrapper:hover img {
+    /* Ao passar o mouse, a imagem "sobe" (translateY negativo) */
+    /* Ajuste o valor -50px dependendo do quanto você quer que a imagem suba */
+    transform: translateY(-50px);
+}
+
+/* ======================================= */
+/* ESTILO REDES SOCIAIS GALERIA (CORRIGIDO) */
+/* ======================================= */
+.redes-sociais {
+    padding: 80px 4%;
+    background-color: #fcfcfc;
+    border-radius: 20px;
+}
+
+.redes-sociais .titulo {
+    font-size: 40px;
+    margin-bottom: 70px;
+}
+
+.redes-sociais .flex-social {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 100px;
+}
+
+.titulo {
+    text-align: center;
+    font-size: 40px;
+    line-height: 1.2;
+    margin-bottom: 70px;
+}
+
+.titulo span {
+    color: #f572ea;
+}
+
+/* Adiciona espaço acima da segunda coluna (Atendimento) */
+.social-coluna + .social-coluna {
+    margin-top: 80px;
+}
+
+
+.social-coluna {
+    text-align: center;
+ margin-bottom: 80px; /* Espaço entre a secção do Insta e a do Whats */
+}
+
+.btn-social-link button {
+    padding: 18px 50px;
+    font-size: 26px;
+    font-weight: 700;
+    border: none;
+    border-radius: 20px;
+    background-color: #f572ea;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 40px;
+    transition: 0.3s;
+    
+
+}
+
+.btn-social-link button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #f572eac0;
+}
+
+.btn-social-link button i {
+    margin-right: 15px;
+}
+
+.galeria-social {
+    display: flex;
+    gap: 25px;
+}
+
+
+
+/* EFEITO DE ROLAGEM CORRIGIDO (INSTAGRAM) */
+.instagram-hover .img-wrapper {
+    width: 680px;
+    height: 480px; /* A "janela" continua com 180px de altura */
+    border-radius: 15px;
+    border: 4px solid #f0f0f0;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.3s;
+	
+}
+
+.instagram-hover .img-wrapper:hover {
+     border-color: #f572ea;
+}
+
+
+.instagram-hover .img-wrapper img {
+     width: 100%;
+    height: auto;
+    filter: blur(5px); /* <<< COMEÇA EMBAÇADO */
+    transition: transform 1s ease-in-out, filter 0.5s ease-out; 
+}
+
+.instagram-hover .img-wrapper:hover img {
+    transform: translateY(-120px);
+    filter: blur(0); /* <<< REMOVE O BLUR AO PASSAR O MOUSE */
+}
+
+
+/* WHATS */
+.galeria-feedback .img-wrapper {
+  width: 680px;  /* Mesmo tamanho da galeria do Insta para manter o padrão */
+  height: 480px;
+  border-radius: 15px;
+  border: 4px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f7f7f7; /* Fundo sutil caso a imagem não preencha tudo */
+  overflow: hidden;
+}
+
+.galeria-feedback .img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* ESSA É A PROPRIEDADE MÁGICA! */
+}
+
+
+
+
+
+
+/* ========================= */
+/* ESTILO DO Catalogo */
+/* ========================= */
+.secao-catalogo .interface {
+  display: flex;
+  flex-direction: column; /* Empilha os itens verticalmente */
+  align-items: center;   /* Esta é a propriedade mágica que os centraliza na horizontal */
+}
+
+/* --- Carrossel (Swiper) --- */
+.swiper.meu-carrossel {
+    width: 100%;
+    max-width: 800px; /* <<< ALTERAÇÃO 1: Deixei o carrossel mais estreito */
+    margin: 0 auto; 
+    padding: 20px 80px 50px 80px; /* Aumentei o espaço lateral para as setas */
+    position: relative;
+    overflow: hidden;
+}
+
+
+.swiper-wrapper {
+    display: flex;
+}
+
+.swiper-slide {
+    flex-shrink: 0;
+    width: 100%;
+    display: flex;
+  justify-content: center;
+}
+
+.swiper-slide img {
+    width: 400px;
+    height: 570px; /* <<< ALTERAÇÃO 2: Aumentei a altura para uma proporção melhor */
+    object-fit: cover; 
+    border-radius: 15px;
+    border: 4px solid #ffffff;
+    
+}
+
+/* --- Estilos para Forçar a Aparição das Setas e Paginação --- */
+.swiper-button-next,
+.swiper-button-prev {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    z-index: 10;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f572ea !important; 
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.swiper-button-prev {
+    left: 20px; /* <<< ALTERAÇÃO 3: Ajustei a posição da seta */
+}
+
+.swiper-button-next {
+    right: 20px; /* <<< ALTERAÇÃO 3: Ajustei a posição da seta */
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+    font-family: swiper-icons;
+    font-size: 18px;
+    font-weight: 900;
+    text-transform: none !important;
+}
+
+.swiper-slide img {
+  width: 400px; /* Alterado de 100% para a imagem não ocupar a largura toda e ficar mais centralizada */
+  height: 500px;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 4px solid #f0f0f0;
+}
+
+.swiper-button-prev:after { content: 'prev'; }
+.swiper-button-next:after { content: 'next'; }
+
+.swiper-pagination-bullet-active {
+    background-color: #f572ea !important;
+}
+
+body.pagina-catalogo {
+    background-color: #000000; /* Um fundo rosa bem clarinho para a página toda */
+}
+
+/* Centraliza e organiza o conteúdo principal */
+.pagina-catalogo .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza tudo horizontalmente */
+    padding-top: 100px;  /* Ajusta o espaço do cabeçalho fixo */
+    padding-bottom: 60px; /* Espaço antes do rodapé */
+}
+
+/* Estilo para o título H1 da página */
+.pagina-catalogo h1.produtos {
+    font-size: 2.5rem; /* Tamanho grande e moderno */
+    color: #583754;    /* Um tom de roxo escuro */
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 4px dotted #fffdff; /* Linha pontilhada rosa como detalhe */
+}
+
+/* Estilo para a "moldura" que segura o catálogo do Drive */
+.catalogo-drive-container {
+    width: 95%; /* Ocupa quase toda a largura do container */
+    max-width: 1200px; /* Limite máximo para telas grandes */
+    height: 70vh; /* Altura relativa à altura da tela do visitante */
+    margin-top: 30px;
+    border: none; /* Remove qualquer borda antiga */
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(255, 0, 221, 0.15); /* Sombra mais forte para destacar */
+    overflow: hidden; /* Garante que o iframe fique dentro das bordas arredondadas */
+    background-color: #f79ff0;
+}
+
+/* Estilo para o iframe em si, para garantir que ele preencha a moldura */
+.catalogo-drive-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Flooter */
+.rodape {
+	background-color: #f79ff0;
+	display: flex;
+	justify-content: center;
+	color: #ededed;
+	padding: 20px;
+	margin-top: 60px;
+}
+
+.esconder {
+	display: none;
+}
+
+.mostrar {
+	display: block;
+}

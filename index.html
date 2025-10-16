@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paraiso do Sabor</title>
+
+  <!-- Area de links -->
+  <!-- link fonte  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet" />
+
+  <!-- bootstrap incons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <!-- FIM bootstrap incons -->
+
+  <!-- link carrossel zap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- fim link do carrossel -->
+
+  <!-- links linguagens -->
+  <link rel="stylesheet" href="./src/css/reset.css">
+  <link rel="stylesheet" href="./src/css/estilos.css">
+  <link rel="stylesheet" href="./src/css/responsivo.css">
+</head>
+
+
+<body>
+  <!-- CABEÇALHO -->
+ <header class="cabecalho">
+    <div class="interface">
+        <div class="logo">
+            <a href="#">
+                <img src="src/imagens/logo paraíso.png" alt="Logo Paraíso do Sabor" />
+            </a>
+        </div>
+
+        <nav class="menu-desktop">
+            <ul>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#nossas-midias">Nossas Mídias</a></li>
+                <li><a href="#catalogo">Catálogo</a></li>
+            </ul>
+        </nav>
+
+        <div class="btn-abrir-menu" id="btn-menu">
+            <i class="bi bi-list"></i>
+        </div>
+
+        <div class="menu-mobile" id="menu-mobile">
+            <div class="btn-fechar">
+                <i class="bi bi-x-lg"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#nossas-midias">Nossas Mídias</a></li>
+                    <li><a href="#catalogo">Catálogo</a></li>
+                </ul>
+            </nav>
+        </div><div class="overlay-menu" id="overlay-menu"></div>
+    </div>
+</header>
+  <!-- MEIO -->
+
+  <!-- Top Line -->
+  <main class="container">
+    <h1 class="produtos">Queridinhos Da Paraiso:</h1>
+
+    <!-- Filtro -->
+    <div class="filtros">
+      <div class="categorias-cartas">
+        <label for="categoria">Categoria:</label>
+        <select id="categoria" class="categoria">
+          <option value="">Selecione uma opção</option>
+          <option value="Tradicional">Tradicional</option>
+          <option value="Pipoca">Pipoca</option>
+          <option value="Combos">Combos</option>
+        </select>
+      </div>
+
+      <!-- Produtos -->
+      <div class="preco-cartas">
+        <label for="preco">Preço máximo (R$):</label>
+        <input type="text" id="preco" class="preco" placeholder="Ex: 100" />
+      </div>
+      <button class="btn-filtrar">Aplicar filtros</button>
+    </div>
+
+    <ul class="cartas"> <!-- Começo da lista de produtos -->
+
+
+      <!-- Produto 1 -->
+      <li class="carta carta-combo" data-categoria="Combos" data-preco="240.00">
+        <img src="src/imagens/Combo 30 intens.jpg" alt="" />
+
+        <div class="informacoes">
+          <h2 class="nome-personagem">Combo 30 intens</h2>
+          <span class="categoria">Categoria: Combos</span>
+          <span class="preco">R$ 240,00</span>
+          <a href="https://wa.me/5581997443934?text=Olá vim pelo site , quero comprar o Combo de 30 itens!" class="btn-comprar"
+            target="_blank">Comprar</a>
+        </div> <!--  fim div Produto 1 -->
+      </li> <!--Fim da li 1-->
+
+      <!-- Produto 2 -->
+      <li class="carta carta-combo" data-categoria="Combos" data-preco="330.00">
+        <img src="src/imagens/Combo 40 itens .jpg" alt="Carta Lymara" />
+        <div class="informacoes">
+          <h2 class="nome-personagem">Combo 40 itens</h2>
+          <span class="categoria">Categoria:Combos</span>
+          <span class="preco">R$ 330,00</span>
+          <a href="https://wa.me/5581997443934?text=Olá vim pelo site , quero comprar o Combo de 40 itens!" class="btn-comprar"
+            target="_blank">Comprar</a>
+        </div> <!--  fim div Produto 2 -->
+      </li> <!--Fim da li 2-->
+
+      <!-- Produto 3 -->
+      <li class="carta" data-categoria="Pipoca" data-preco="14.00">
+        <img src="src/imagens/pipoca trad.png" alt="Carta Kaelthar" />
+        <div class="informacoes">
+          <h2 class="nome-personagem">Pipocas Goumert Tradicional</h2>
+          <span class="categoria">Categoria: Pipoca</span>
+          <span class="categoria">Quantidade: (Ziper adesivo pingente ou tag) 50g</span>
+          <span class="preco">R$ 14,00</span>
+          <a href="https://wa.me/5581997443934?text=Olá vim pelo site , quero comprar pipocas gourmet!"
+            class="btn-comprar" target="_blank">Comprar</a>
+        </div> <!--  fim div Produto 3 -->
+      </li> <!--Fim da li 3-->
+
+      <!-- Produto 4 -->
+      <li class="carta" data-categoria="Pipoca" data-preco="10.00">
+        <img src="src/imagens/Pipoca Granel.png" alt="Carta Maldrik" />
+        <div class="informacoes">
+          <h2 class="nome-personagem">Pipoca a Granel</h2>
+          <span class="categoria">Categoria: Pipoca</span>
+          <span class="categoria">Quantidade: A partir de 500g</span>
+          <span class="preco">R$ 70,00</span>
+          <a href="https://wa.me/5581997443934?text=Olá vim pelo site, quero comprar pipoca a granel!"
+            class="btn-comprar" target="_blank">Comprar</a>
+        </div> <!--  fim div Produto 4 -->
+      </li> <!--Fim da li 4-->
+
+      <!-- Produto 5 -->
+      <li class="carta" data-categoria="Tradicional" data-preco="9.00">
+        <img src="src/imagens/pirulito.png" alt="Carta Drahven" />
+        <div class="informacoes">
+          <h2 class="nome-personagem">Pirulito Artístico Cristal</h2>
+          <span class="categoria">Categoria: Tradicional </span>
+          <span class="categoria">Tamanho: 5cm</span>
+
+          <span class="preco">R$ 9,00</span>
+          <a href="https://wa.me/5581997443934?text=Olá vim pelo site, quero comprar o pirulito!" class="btn-comprar"
+            target="_blank">Comprar</a>
+        </div> <!--  fim div Produto 5 -->
+      </li> <!--  fim da li 5 -->
+
+      <!-- Produto 6 -->
+      <li class="carta" data-categoria="Tradicional" data-preco="9.00">
+        <img src="src/imagens/algodao.png" alt="Carta Nyxsombra" />
+        <div class="informacoes">
+          <h2 class="nome-personagem">Algodão Doce</h2>
+          <span class="categoria">Categoria: Tradicional</span>
+          <span class="categoria">Quantidade: Copo Bolha(266/300ml)</span>
+          <span class="preco">R$ 9,00</span>
+          <a href="https://wa.me/5581997443934?text=Olá vim pelo site, quero comprar o algodão!" class="btn-comprar"
+            target="_blank">Comprar</a>
+        </div><!--  fim div Produto 6 -->
+      </li> <!--  fim da li 6 -->
+
+      <!-- Produto 7 -->
+
+      <li class="carta" data-categoria="Tradicional" data-preco="10.00">
+        <img src="src/imagens/Maçã do amor.jpg" alt="Carta Nyxsombra" />
+        <div class="informacoes">
+          <h2 class="nome-personagem">Maçã do Amor</h2>
+          <span class="categoria">Categoria: Tradiconal</span>
+          <span class="categoria">Quantidade: SQ</span>
+          <span class="preco">R$ 10,00</span>
+          <a href="http://wa.me/5581997443934?text=Olá vim pelo site, quero comprar Maçã do amor!" class="btn-comprar"
+            target="_blank">Comprar</a>
+        </div><!--  fim div Produto 7 -->
+      </li> <!--  fim da li 7 -->
+
+      <!-- Produto 8 -->
+
+      <li class="carta" data-categoria="Tradicional" data-preco=" 9.00">
+        <img src="src/imagens/Bem vividos .jpg" alt="Carta Nyxsombra" />
+        <div class="informacoes">
+          <h2 class="nome-personagem">Bem-Vividos Recheados</h2>
+          <span class="categoria">Categoria: Tradicional</span>
+          <span class="categoria">Quantidade: 3 Unidades</span>
+          <span class="preco">R$ 9,00</span>
+          <a href="http://wa.me/5581997443934?text=Olá vim pelo site, quero comprar os Bem-Vividos!" class="btn-comprar"
+            target="_blank">Comprar</a>
+        </div><!--  fim div Produto 8 -->
+      </li> <!--  fim da li 8 -->
+
+      <!-- Produto 9 -->
+
+      <li class="carta" data-categoria="Tradicional" data-preco="700.00">
+        <img src="src/imagens/Tabuleiro de Pipocas.jpg" alt="Carta Nyxsombra" />
+        <div class="informacoes">
+          <h2 class="nome-personagem">Tabuleiros Goumert</h2>
+          <span class="categoria">Categoria: Tradicional</span>
+          <span class="categoria">Quantidade: A partir da escolha do cliente.</span>
+          <span class="preco">R$ 700,00</span>
+          <a href="http://wa.me/5581997443934?text=Olá vim pelo site, quero comprar o Tabuleiro!" class="btn-comprar"
+            target="_blank">Comprar</a>
+        </div><!--  fim div Produto 9-->
+      </li> <!--  fim da li 9 -->
+
+    </ul><!-- FIM da lista de produtos -->
+
+
+    <!-- Sobre  -->
+    <section id="sobre" class="sobre">
+      <div class="interface">
+        <div class="flex">
+
+          <div class="img-sobre">
+            <img src="src/imagens/Fabrícia sobre .png" alt="">
+
+          </div><!--img-sobre-->
+
+          <div class="txt-sobre">
+            <h2>Olá, <span> Sou Fabricia Lara.</span></h2>
+            <p>Fundadora e CEO da Paraíso do Sabor desde 2019. A partir do início, meu propósito sempre foi levar mais
+              alegria, cor e sabor para a vida das pessoas.
+              Começamos com receitas simples, mas cheias de amor: pipocas gourmet, algodões-doces, churros e pirulitos
+              que encantam crianças e adultos. Cada produto nasceu do desejo de transformar o que seria apenas um lanche
+              em um
+              momento especial — e foi assim que o Paraíso do Sabor começou a conquistar corações e crescer a cada ano.
+            </p>
+            <p>"Hoje, a Paraíso do Sabor vai muito além das delícias que produz: participamos de festas, ajudamos a
+              criar
+              eventos
+              e realizamos sonhos. Acredito que cada detalhe tem o poder de tornar um dia comum em algo inesquecível.
+              Meu maior prazer é ver sorrisos , espalhar felicidade e mostrar que, quando há amor em cada preparo, o
+              sabor vira uma lembrança doce que fica para sempre."
+            </p>
+
+
+          </div><!--txt-sobre-->
+        </div><!--flex-->
+      </div><!--interface-->
+    </section><!--sobre -->
+
+    <!-- Redes SOCIAIS -->
+    <section id="nossas-midias" class="redes-sociais">
+      <div class="interface">
+        <h2 class="titulo">ACOMPANHE NOSSO <span>PARAÍSO.</span></h2>
+
+        <div class="social-coluna">
+          <a href="https://www.instagram.com/paraisodosabor34/?hl=en" target="_blank" class="btn-social-link">
+            <button><i class="bi bi-instagram"></i> Instagram</button>
+          </a>
+          <div class="galeria-social instagram-hover">
+            <div class="img-wrapper">
+              <img src="src/imagens/foto do insta 1.jpg" alt="Post do Instagram 1">
+            </div>
+            <div class="img-wrapper">
+              <img src="src/imagens/foto 2 Instagram .jpg" alt="Post do Instagram 2">
+            </div>
+            <div class="img-wrapper">
+              <img src="src/imagens/foto insta 3.jpg" alt="Post do Instagram 3">
+            </div>
+          </div>
+        </div>
+
+        <div class="social-coluna">
+          <h2 class="titulo">NOSSO <span>ATENDIMENTO.</span></h2>
+          <a href="http://wa.me/5581997443934?text=Olá, eu acabei de chegar do site!" target="_blank"
+            class="btn-social-link">
+            <button><i class="bi bi-whatsapp"></i> WhatsApp</button>
+          </a>
+
+          <div class="galeria-social galeria-feedback">
+            <div class="img-wrapper">
+              <img src="src/imagens/feedback 1.jpg">
+            </div>
+            <div class="img-wrapper">
+              <img src="src/imagens/feedback 2.jpg">
+            </div>
+            <div class="img-wrapper">
+              <img src="src/imagens/feedback 3.jpg">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="catalogo" class="redes-sociais secao-catalogo">
+
+      <div class="interface">
+        <h2 class="titulo">TODOS OS NOSSOS PRODUTOS PARAISO ATRAVÉS DO <span>CATÁLOGO.</span></h2>
+        <a href="catalogo.html"
+          class="btn-social-link">
+          <button><i class="bi bi-box2"></i> Cátalogo</button>
+        </a>
+
+        <div class="swiper meu-carrossel">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="src/imagens/foto carrossel catálogo 1.jpg">
+            </div>
+            <div class="swiper-slide">
+              <img src="src/imagens/foto carrossel catálogo 2.jpg">
+            </div>
+            <div class="swiper-slide">
+              <img src="src/imagens/foto carrossel catálogo 3.jpg">
+            </div>
+            <div class="swiper-slide">
+              <img src="src/imagens/foto carrossel catálogo 4.jpg">
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+    </section>
+
+  </main>
+  <footer class="rodape"> &copy;CREATE BY:KAV_TECH-2025- Paraiso do Sabor- Todos os direitos reservados.</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script src="src/js/index.js"></script>
+</body>
+
+</html>
