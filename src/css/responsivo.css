@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @media(max-width: 1024px) {
     .container {
         padding-top: 20px;
@@ -268,4 +269,361 @@
         height: 80vh; /* Ocupa 80% da altura da tela, dando mais espaço de visualização */
         margin-top: 20px;
     }
+=======
+@media(max-width: 1024px) {
+    .container {
+        padding-top: 20px;
+        padding-top: 80px; 
+    
+    }
+    .cabecalho .interface {
+        justify-content: space-between;
+    }
+
+    /* 2. Diminui a altura do cabeçalho */
+ .cabecalho {
+    z-index: 10000; /* Um valor maior que o da parallax-front (9999) */
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+    /* 3. Diminui o tamanho da logo para se adequar ao cabeçalho menor */
+    .cabecalho .logo img {
+        width: 120px;
+    }
+
+    .container h1 {
+        text-align: center;
+    }
+
+    .container .filtros {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .container .filtros .categorias-cartas,
+    .container .filtros .preco-cartas,
+    .container .filtros .btn-filtrar {
+        width: 65%;
+    }
+
+    .container .filtros .btn-filtrar {
+        align-self: center;
+    }
+
+    .container .cartas {
+        justify-content: center;
+    }
+
+    /* Esconde o menu de desktop */
+    .menu-desktop,
+    .btn-contato {
+        display: none;
+    }
+
+    /* Mostra o botão de abrir menu (hamburger) */
+    .btn-abrir-menu {
+        display: block;
+    }
+     .container {
+        /* Um valor um pouco menor para a altura do cabeçalho no mobile */
+        padding-top: 80px; 
+    }
+
+
+}
+
+@media(max-width: 480px) {
+    /* 1. Fazemos os cards terem uma animação de entrada ao aparecer no scroll */
+    .container .cartas .carta {
+        width: 100%;
+        margin-bottom: 30px;
+        opacity: 0;
+        transform: translateY(50px) rotateX(10deg);
+        transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    /* Classe que o JS vai adicionar quando o card aparecer na tela */
+    .container .cartas .carta.revelar {
+        opacity: 1;
+        transform: translateY(0) rotateX(0deg);
+    }
+
+    /* 2. Feedback visual no toque (Touch Feedback) */
+    .container .cartas .carta:active {
+        transform: scale(0.95); /* O card "encolhe" levemente ao tocar */
+        filter: brightness(0.9);
+    }
+
+    /* 3. Estilo Premium para o Botão no Mobile */
+    .container .carta .informacoes .btn-comprar {
+        width: 100%;
+        display: block;
+        font-size: 18px;
+        padding: 20px;
+        box-shadow: 0 10px 20px rgba(245, 114, 234, 0.3);
+        border-radius: 15px;
+    }
+
+    /* Container geral das camadas */
+    .parallax-bg, .parallax-front {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none; /* Garante que o toque passe para os botões */
+    }
+
+    .parallax-bg { z-index: -1; } /* Atrás */
+    .parallax-front {
+        position: fixed;
+        top: 120px; /* Empurra o "teto" das pipocas para baixo da busca */
+        left: 0;
+        width: 100%;
+        height: calc(100% - 120px); /* Ocupa o restante da tela */
+        z-index: 999; /* Fica abaixo do z-index 1000 do cabeçalho */
+        pointer-events: none;
+        overflow: hidden; /* Garante que nada saia dessa área */
+    }
+    /* Estilo das pipocas individuais */
+    .p-atras {
+        position: absolute;
+        width: 40px;
+        opacity: 0.4;
+        filter: blur(2px); /* Desfoque para dar profundidade de campo */
+    }
+
+    .p-frente {
+        position: absolute;
+        width: 100px; /* Bem maiores para parecer que estão perto do olho */
+        opacity: 0.9;
+        filter: drop-shadow(0 10px 10px rgba(0,0,0,0.3));
+    }
+
+    /* Posições iniciais */
+    .p1 { top: 10%; left: 5%; }
+    .p2 { top: 60%; right: 10%; }
+    .p3 {
+        position: absolute;
+        top: 20px; /* Agora 'top 20px' significa 20px abaixo do container (140px do topo real) */
+        left: -15px;
+        width: 80px; /* Diminuímos um pouco para não poluir o mobile */
+        opacity: 0.9;
+    }
+    .p4 { top: 80%; right: -30px; rotate: -20deg; }
+}
+
+/* ============================ */
+/* RESPONSIVO DA SEÇÃO SOBRE */
+/* ============================ */
+
+@media screen and (max-width: 768px) {
+    .sobre {
+        padding: 60px 5%; /* Menos espaço nas laterais para o texto respirar */
+        margin-top: 20px;
+    }
+
+    .sobre .flex {
+        flex-direction: column; /* Empilha: Foto em cima, Texto embaixo */
+        gap: 50px; /* Espaço entre a foto e o começo do texto */
+    }
+
+    /* Foto da Fabrícia no Celular */
+    .sobre .img-sobre {
+        flex: 0 0 auto; /* Libera o tamanho fixo */
+        width: 85%;    /* Foto ocupa a maior parte da largura */
+        max-width: 320px; /* Mas não deixa ficar gigante */
+        order: 1;      /* Garante que a foto seja a primeira coisa */
+    }
+
+    .sobre .img-sobre::before {
+        top: 15px;
+        left: -15px; /* Deixa o detalhe da moldura mais discreto no celular */
+        border-width: 3px;
+    }
+
+    /* Texto no Celular */
+    .sobre .txt-sobre {
+        width: 100%;
+        order: 2; /* Texto vem depois da foto */
+        text-align: center; /* Centraliza para ficar mais harmonioso no mobile */
+    }
+
+    .sobre .txt-sobre h2 {
+        font-size: 34px; /* Diminui o título para não quebrar em 4 linhas */
+        margin-bottom: 25px;
+        text-align: center;
+    }
+
+    .sobre .txt-sobre p {
+        font-size: 17px; /* Letra levemente menor para caber mais conteúdo */
+        text-align: center; /* No mobile, texto centralizado costuma converter melhor em seções "Sobre" */
+        line-height: 1.6;
+    }
+
+    /* Ajuste da Citação no Celular */
+    .sobre .txt-sobre p.citacao {
+        border-left: none;
+        border-top: 4px solid #ffffff; /* A linha vira um detalhe no topo */
+        border-radius: 20px;
+        padding: 20px;
+        margin-top: 30px;
+    }
+}
+
+@media(max-width: 480px) {
+
+    .container .filtros .categorias-cartas,
+    .container .filtros .preco-cartas,
+    .container .filtros .btn-filtrar {
+        width: 100%;
+    }
+
+    .container .cartas .carta {
+        /* Muda para 1 coluna ocupando 100% da largura */
+        width: 100%;
+    }
+}
+
+/* ========================================= */
+/* RESPONSIVO - SECÇÃO REDES SOCIAIS COMPLETO */
+/* ========================================= */
+
+@media screen and (max-width: 1024px) {
+
+    /* Ajusta a galeria do Instagram para quebrar a linha */
+    .galeria-social.instagram-hover {
+        flex-wrap: wrap;
+    }
+
+    /* Ajusta o carrossel para tablets */
+    .swiper.meu-carrossel {
+        max-width: 600px;
+    }
+
+    .swiper-slide img {
+        height: 400px;
+    }
+}
+@media screen and (max-width: 768px) {
+    /* 1. Títulos e Espaçamento */
+    .redes-sociais .titulo {
+        font-size: 28px;
+        padding: 0 10px;
+        margin-bottom: 30px;
+    }
+
+    /* 2. Botões "Touch-Friendly" (Fáceis de clicar com o dedão) */
+    .btn-insta-premium, .btn-zap-premium {
+        width: 90%; /* Quase a largura toda da tela */
+        font-size: 18px;
+        padding: 20px;
+        justify-content: center;
+        margin: 0 auto 40px auto;
+    }
+
+    /* 3. Efeito Mural "Leque" (Mais foda que uma lista vertical) */
+    .grid-insta, .feedbacks-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px; /* Mais espaço entre as "fotos" */
+        padding-bottom: 50px;
+    }
+
+    /* Transformamos os cards em Polaroids que se sobrepõem levemente */
+    .foto-insta, .feedback-card {
+        width: 85% !important;
+        height: auto !important;
+        max-width: 320px;
+        /* Removemos o 'fixed height' para a imagem aparecer bem */
+        border: 10px solid #ffffff !important;
+        border-bottom: 40px solid #ffffff !important;
+        
+        /* Efeito de "fotos jogadas na mesa" */
+        transform: rotate(-3deg) translateY(0);
+        transition: transform 0.3s ease;
+    }
+
+    /* Intercalamos a inclinação para dar o ar de Paraíso bagunçado/criativo */
+    .foto-insta:nth-child(even), .feedback-card:nth-child(even) {
+        transform: rotate(3deg) translateY(-15px);
+    }
+
+    /* 4. Feedback visual ao TOQUE (Substitui o Hover) */
+    .foto-insta:active, .feedback-card:active {
+        transform: scale(1.05) rotate(0deg) !important;
+        z-index: 10;
+        box-shadow: 0 20px 40px rgba(245, 114, 234, 0.4);
+    }
+
+    .foto-insta img, .feedback-card img {
+        width: 100%;
+        height: 250px; /* Altura fixa para as fotos no mobile */
+        object-fit: cover;
+    }
+
+    /* Ajuste específico para os feedbacks do Zap não serem cortados */
+    .feedback-card img {
+        object-fit: contain;
+        background: #f1f1f1;
+    }
+
+    /* 5. Tiramos o efeito de rolagem interna (que só funciona com mouse) */
+    .instagram-hover .img-wrapper img {
+        transform: none !important;
+        filter: none !important;
+    }
+
+
+
+    /* --- AJUSTES DO CATÁLOGO (CARROSSEL) --- */
+    .meu-carrossel {
+        /* Reduz o espaçamento nas laterais para as setas não saírem da tela */
+        padding: 20px 50px 50px 50px;
+        overflow: hidden;
+    }
+
+    .swiper-slide img {
+        width: 100%;
+        /* A imagem ocupa toda a largura do slide */
+        height: auto;
+        /* A altura se ajusta para não distorcer */
+        max-height: 450px;
+        /* Limita a altura máxima para não ficar gigante */
+        object-fit: cover;
+    }
+
+    /* Ajusta a posição das setas de navegação para ficarem mais próximas da borda */
+    .swiper-button-prev {
+        left: 10px;
+    }
+
+    .swiper-button-next {
+        right: 10px;
+    }
+
+       /* Ajusta o espaçamento superior da página para telas menores */
+    .pagina-catalogo .container {
+        padding-top: 80px; /* Reduz o espaço inicial, já que o cabeçalho é menor */
+    }
+
+    /* Diminui o tamanho do título principal */
+    .pagina-catalogo h1.produtos {
+        font-size: 1.8rem; /* Tamanho mais adequado para celulares (aprox. 28px) */
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+    }
+
+    /* Ajusta a altura da janela do catálogo para aproveitar a tela vertical */
+    .catalogo-drive-container {
+        width: 100%; /* Ocupa a largura inteira em telas bem pequenas */
+        height: 80vh; /* Ocupa 80% da altura da tela, dando mais espaço de visualização */
+        margin-top: 20px;
+    }
+>>>>>>> 77aa572 (Versão 2.0)
 }
